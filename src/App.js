@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/home/Home";
 import About from "./components/about/About";
 import Skills from "./components/skills/Skills";
+import Services from "./components/services/Services";
 function App() {
   const [Toggle, showMenu] = useState(false);
 
@@ -33,7 +34,7 @@ function App() {
                 </Link>
               </li>
               <li className="nav__item">
-                <Link className="nav__link" to="/">
+                <Link className="nav__link" to="/services">
                   <i className="uil uil-briefcase-alt nav__icon"> </i>Services
                 </Link>
               </li>
@@ -67,11 +68,13 @@ function App() {
         <Home/>
         <About/>
         <Skills/>
+        <Services/>
       </main>
       <Routes>
         <Route path="/home" element={<Home/>} />
         <Route path="/skills" element={<Skills/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/services" element={<Services/>} />
       </Routes>
     </>
   );
