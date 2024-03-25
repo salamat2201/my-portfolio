@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/home/Home";
 import About from "./components/about/About";
+import Skills from "./components/skills/Skills";
 function App() {
   const [Toggle, showMenu] = useState(false);
 
@@ -27,7 +28,7 @@ function App() {
                 </Link>
               </li>
               <li className="nav__item">
-                <Link className="nav__link" to="/">
+                <Link className="nav__link" to="/skills">
                   <i className="uil uil-file-alt nav__icon"></i>Skills
                 </Link>
               </li>
@@ -65,9 +66,11 @@ function App() {
       <main className="main">
         <Home/>
         <About/>
+        <Skills/>
       </main>
       <Routes>
         <Route path="/home" element={<Home/>} />
+        <Route path="/skills" element={<Skills/>} />
         <Route path="/about" element={<About/>} />
       </Routes>
     </>
