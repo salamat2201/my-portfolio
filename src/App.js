@@ -3,6 +3,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/home/Home";
+import About from "./components/about/About";
 function App() {
   const [Toggle, showMenu] = useState(false);
 
@@ -21,7 +22,7 @@ function App() {
                 </Link>
               </li>
               <li className="nav__item">
-                <Link className="nav__link" to="/">
+                <Link className="nav__link" to="/about">
                   <i className="uil uil-user nav__icon"> </i>About
                 </Link>
               </li>
@@ -61,11 +62,13 @@ function App() {
           </div>
         </nav>
       </header>
-      {/* <main className="main">
-        <Home />
-      </main> */}
+      <main className="main">
+        <Home/>
+        <About/>
+      </main>
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
       </Routes>
     </>
   );
