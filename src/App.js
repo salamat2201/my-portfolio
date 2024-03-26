@@ -7,6 +7,7 @@ import About from "./components/about/About";
 import Skills from "./components/skills/Skills";
 import Services from "./components/services/Services";
 import Qualification from "./components/qualification/Qualification";
+import Testimonials from "./components/testimonials/Testimonials";
 function App() {
   const [Toggle, showMenu] = useState(false);
 
@@ -71,6 +72,7 @@ function App() {
         <Skills/>
         <Services/>
         <Qualification/>
+        <Testimonials/>
       </main>
       <Routes>
         <Route path="/home" element={<Home/>} />
@@ -78,6 +80,7 @@ function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/services" element={<Services/>} />
         <Route path="/qualification" element={<Qualification/>} />
+        <Route path="/testimonials" element={<Testimonials/>}/>
       </Routes>
     </>
   );
