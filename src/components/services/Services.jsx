@@ -1,12 +1,42 @@
-import React, { useState } from "react";
-import './services.css';;
+import React, { useRef, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import "./services.css";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 export default function Services() {
   const [toggleState, setToggleState] = useState(0);
-  const toggleTab= (index)=>{
+  const toggleTab = (index) => {
     setToggleState(index);
-  }
+  };
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const location = useLocation({
+    pathname: "/services",
+    hash: "#services",
+  });
+  useEffect(() => {
+    if (location.hash) {
+      let elem = document.getElementById(location.hash.slice(1));
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+  }, [location]);
   return (
-    <section className="services section">
+    <motion.section
+      ref={ref}
+      style={{ scale: scaleProgress, opacity: opacityProgress }}
+      className="services section"
+      id="services"
+    >
       <h2 className="section__title">Services</h2>
       <span className="section__subtitle">What i offer</span>
       <div className="services__container container grid">
@@ -17,15 +47,22 @@ export default function Services() {
               Product <br /> Designer
             </h3>
           </div>
-          <span className="services__button" onClick={()=>toggleTab(1)}>
+          <span className="services__button" onClick={() => toggleTab(1)}>
             View More
             <i className="uil uil-arrow-right services__button-icon"></i>
           </span>
-          <div className={toggleState===1?"services__modal active-modal":"services__modal"}>
+          <div
+            className={
+              toggleState === 1
+                ? "services__modal active-modal"
+                : "services__modal"
+            }
+          >
             <div className="services__modal-content">
-              <i className="uil uil-times services__modal-close" onClick={()=>toggleTab(0)}>
-                
-              </i>
+              <i
+                className="uil uil-times services__modal-close"
+                onClick={() => toggleTab(0)}
+              ></i>
               <h3 className="services__modal-title">Product Designer</h3>
               <p className="services__modal-description">
                 Service with more than 3 years of experience.Providing quality
@@ -71,13 +108,22 @@ export default function Services() {
               Ui/Ux <br /> Designer
             </h3>
           </div>
-          <span className="services__button" onClick={()=>toggleTab(2)}>
+          <span className="services__button" onClick={() => toggleTab(2)}>
             View More
             <i className="uil uil-arrow-right services__button-icon"></i>
           </span>
-          <div className={toggleState===2?"services__modal active-modal":"services__modal"}>
+          <div
+            className={
+              toggleState === 2
+                ? "services__modal active-modal"
+                : "services__modal"
+            }
+          >
             <div className="services__modal-content">
-              <i className="uil uil-times services__modal-close" onClick={()=>toggleTab(0)}></i>
+              <i
+                className="uil uil-times services__modal-close"
+                onClick={() => toggleTab(0)}
+              ></i>
               <h3 className="services__modal-title">Ui/Ux Designer</h3>
               <p className="services__modal-description">
                 Service with more than 3 years of experience.Providing quality
@@ -123,13 +169,22 @@ export default function Services() {
               Visual <br /> Designer
             </h3>
           </div>
-          <span className="services__button" onClick={()=>toggleTab(3)}>
+          <span className="services__button" onClick={() => toggleTab(3)}>
             View More
             <i className="uil uil-arrow-right services__button-icon"></i>
           </span>
-          <div className={toggleState===3?"services__modal active-modal":"services__modal"}>
+          <div
+            className={
+              toggleState === 3
+                ? "services__modal active-modal"
+                : "services__modal"
+            }
+          >
             <div className="services__modal-content">
-              <i className="uil uil-times services__modal-close" onClick={()=>toggleTab(0)}></i>
+              <i
+                className="uil uil-times services__modal-close"
+                onClick={() => toggleTab(0)}
+              ></i>
               <h3 className="services__modal-title">Visual Designer</h3>
               <p className="services__modal-description">
                 Service with more than 3 years of experience.Providing quality
@@ -169,6 +224,6 @@ export default function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

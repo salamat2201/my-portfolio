@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
 import "./about.css";
-import AboutIMG from "../../assets/profile.jpg";
+import AboutIMG from "../../assets/aboutme1.jpg";
 import CV from "../../assets/CV(Sarsenbay-Meyirman).pdf";
 import Info from "./Info";
+
 export default function About() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.33 1"],
+  });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const location = useLocation({
+    pathname: "/about",
+    hash: "#about",
+  });
+  useEffect(() => {
+    if (location.hash) {
+      let elem = document.getElementById(location.hash.slice(1));
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+  }, [location]);
   return (
-    <section className="about section">
+    <motion.section
+      ref={ref}
+      style={{ scale: scaleProgress, opacity: opacityProgress }}
+      className={`about section `}
+      id="about"
+    >
       <h2 className="section__title">About me</h2>
       <span className="section__subtitle">My introduction</span>
       <div className="about__container container grid">
@@ -48,6 +78,6 @@ export default function About() {
           </a>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
