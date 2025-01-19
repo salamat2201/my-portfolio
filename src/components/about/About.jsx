@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "./about.css";
 import AboutIMG from "../../assets/aboutme1.jpg";
-import CV from "../../assets/CV(Sarsenbay-Meyirman).pdf";
+import CV from "../../assets/Salamat_CV.pdf";
 import Info from "./Info";
 
 export default function About() {

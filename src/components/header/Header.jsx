@@ -9,7 +9,7 @@ export default function Header() {
     <header className="header">
       <nav className="nav container">
         <NavLink to="/" className="nav__logo">
-          Meirman Sarsenbay
+          Salamat Daribayev
         </NavLink>
         <div className={toggle ? "nav__menu show__menu" : "nav__menu"}>
           <ul className="nav__list grid">
@@ -29,23 +29,13 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink className="nav__link" to="/#services">
-                Services
-              </NavLink>
-            </li>
-            <li className="nav__item">
               <NavLink className="nav__link" to="/#qualification">
                 Qualification
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink className="nav__link" to="/#testimonials">
-                Testimonials
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <NavLink className="nav__link" to="/#contact">
-                Contact
+                My projects
               </NavLink>
             </li>
           </ul>

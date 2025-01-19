@@ -5,9 +5,8 @@ import Social from "./Social";
 import ScrollDown from "./ScrollDown";
 import About from "../about/About";
 import Skills from "../skills/Skills";
-import Services from "../services/Services";
 import Qualification from "../qualification/Qualification";
-import Testimonials from "../testimonials/Testimonials";
+import Testimonials from "../testimonials/ProjectsSection";
 import Contact from "../contact/Contact";
 
 export default function Home() {
@@ -50,7 +49,7 @@ export default function Home() {
             <div className="home__img"></div>
             <div className="home__data">
               <h1 className="home__title">
-                Meyirman Sarsenbay
+                Salamat Daribayev
                 <svg
                   width="36"
                   height="36"
@@ -129,10 +128,8 @@ export default function Home() {
       </section>
       <About />
       <Skills />
-      <Services />
       <Qualification />
       <Testimonials />
-      <Contact />
     </>
   );
 }
