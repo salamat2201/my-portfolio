@@ -6,14 +6,14 @@ const projects = [
     title: "Сайт для продажи онлайн-курсов",
     description: "Веб-приложение для продажи и управления онлайн-курсами. Включает подробности курсов, видео-превью и удобную навигацию. Здесь не работает backend часть, так как написан на localhost",
     technologies: "React, CSS, REST API",
-    link: "https://your-project-link.com",
-    designLink: "https://figma-design-link.com",
+    link: "https://front-proj-orcin.vercel.app/",
+    designLink: "https://www.figma.com/design/6QCUMgfFuyhjhKcF0yagIW/MyCourses.io---Course-Website-%7C-Course-Online-%7C-Course-details-%7C-Course-landing-page-%7C-Untitled-UI-(Community)?node-id=518-2505&p=f&t=NHLHmMPKzjZizMey-0",
   },
   {
     title: "Skill-Intern",
     description: "Платформа для поиска стажировок и вакансий в сфере IT, аналогичная it-nomads.kz. Помогает соединять студентов и работодателей. Так же я добавил функции, которых нет в дизайне, такие как автоматическая отправка сообщений по электронной почте при отклике на вакансию. Здесь не работает backend часть, так как написан на localhost",
     technologies: "React, Tailwind, TypeScript",
-    link: "https://skill-intern-link.com",
+    link: "https://skill-intern-front-i6n8.vercel.app/",
     designLink: "https://www.figma.com/design/QI8z9GyaaBpwUONPtD6Bqn/PM-Skill-Intern?node-id=0-1",
   },
   {
@@ -38,10 +38,10 @@ const ProjectsSection = () => {
               <strong>Технологии:</strong> {project.technologies}
             </p>
             <div className="project-links">
-              <a href={`https://front-proj-orcin.vercel.app/`} target="_blank" rel="noopener noreferrer">
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
                 Посмотреть сайт
               </a>
-              <a href={`https://www.figma.com/design/6QCUMgfFuyhjhKcF0yagIW/MyCourses.io---Course-Website-%7C-Course-Online-%7C-Course-details-%7C-Course-landing-page-%7C-Untitled-UI-(Community)?node-id=518-2505&p=f&t=NHLHmMPKzjZizMey-0`} target="_blank" rel="noopener noreferrer">
+              <a href={project.designLink} target="_blank" rel="noopener noreferrer">
                 Макет на Figma
               </a>
             </div>
