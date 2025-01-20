@@ -63,3 +63,9 @@
     text-decoration: underline;
   }
   
+
+  @media screen and (max-width: 576px) {
+    .projects-container {
+      flex-direction: column;
+    }
+}
